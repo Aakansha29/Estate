@@ -53,10 +53,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     if current_user.role == 'Seller'
-      'store#seller'
-      else
-      current_user.role == 'Buyer'
-      root_path
+      sellers_index_path
+    else
+      buyers_index_path
     end
   end
 
