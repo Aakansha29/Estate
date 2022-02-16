@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @property.type %>
+  <strong>Property type:</strong>
+  <%= @property.property_type %>
 </p>
 
 <p>
@@ -25,5 +25,9 @@
   <%= @property.area %>
 </p>
 
+<% if current_user.role == 'seller' %>
 <%= link_to 'Edit', edit_property_path(@property) %> |
+<% end %>
 <%= link_to 'Back', properties_path %>
+
+

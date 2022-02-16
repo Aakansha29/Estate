@@ -17,7 +17,7 @@ class PropertiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create property" do
     assert_difference('Property.count') do
-      post properties_url, params: { property: { area: @property.area, location: @property.location, rate: @property.rate, title: @property.title, type: @property.type } }
+      post properties_url, params: { property: { area: @property.area, location: @property.location, property_type: @property.property_type, rate: @property.rate, title: @property.title } }
     end
 
     assert_redirected_to property_url(Property.last)
@@ -34,7 +34,7 @@ class PropertiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update property" do
-    patch property_url(@property), params: { property: { area: @property.area, location: @property.location, rate: @property.rate, title: @property.title, type: @property.type } }
+    patch property_url(@property), params: { property: { area: @property.area, location: @property.location, property_type: @property.property_type, rate: @property.rate, title: @property.title } }
     assert_redirected_to property_url(@property)
   end
 

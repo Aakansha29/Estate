@@ -16,9 +16,9 @@ class PropertiesTest < ApplicationSystemTestCase
 
     fill_in "Area", with: @property.area
     fill_in "Location", with: @property.location
+    fill_in "Property type", with: @property.property_type
     fill_in "Rate", with: @property.rate
     fill_in "Title", with: @property.title
-    fill_in "Type", with: @property.type
     click_on "Create Property"
 
     assert_text "Property was successfully created"
@@ -31,9 +31,9 @@ class PropertiesTest < ApplicationSystemTestCase
 
     fill_in "Area", with: @property.area
     fill_in "Location", with: @property.location
+    fill_in "Property type", with: @property.property_type
     fill_in "Rate", with: @property.rate
     fill_in "Title", with: @property.title
-    fill_in "Type", with: @property.type
     click_on "Update Property"
 
     assert_text "Property was successfully updated"

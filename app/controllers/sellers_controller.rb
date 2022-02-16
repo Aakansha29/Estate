@@ -1,5 +1,5 @@
 class SellersController < ApplicationController
-    def index
+	def index
 		@properties = Property.all
 	end
 end

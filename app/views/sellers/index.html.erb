@@ -1,6 +1,19 @@
 <h1>Seller</h1>
-<% @properties.present? %>
+<% if @properties.present? %>
     <% @properties.each do |p|%>
-        <p><%= p.title%></p>
+        <div class="card" style="width: 18rem; background-color: #cedae9;">
+          <div class="card-body">
+            <h5 class="card-title"><%= p.title%></h5>
+            <p class="card-text">
+                <%= p.location %>
+                <%= p.rate %>
+                <%= p.area %>
+            </p>
+            <%= link_to "View", property_path(p), class:"btn btn-primary"%>
+          </div>
+        </div>
     <% end %>
 <% end %>
+
+<%= link_to "Create New Property", new_property_path%>
+

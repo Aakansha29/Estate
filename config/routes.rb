@@ -4,8 +4,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
     }
-  
+  get 'properties/index'
   root 'properties#index'
+
   # root 'buyers#index'
 
   get '/buyers/index' => 'buyers#index'

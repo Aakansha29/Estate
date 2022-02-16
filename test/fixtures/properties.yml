@@ -2,14 +2,14 @@
 
 one:
   title: MyString
-  type: 1
+  property_type: 1
   location: MyString
   rate: MyString
   area: MyString
 
 two:
   title: MyString
-  type: 1
+  property_type: 1
   location: MyString
   rate: MyString
   area: MyString
