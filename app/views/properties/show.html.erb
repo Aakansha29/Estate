@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
-
+<% if @property.title == 'Flat' %>
+ <%= image_tag "flat1.jpeg" %>
+ <%= image_tag "flat2.jpeg" %>
+<% else if @property.title == 'Bungalow' %>
+ <%= image_tag "b2.jpeg" %>
+  <% else @property.title == 'Apartment' %>
+<%= image_tag "a1.jpeg" %>
+<% end %> 
+<% end %>
 <p>
   <strong>Title:</strong>
   <%= @property.title %>
