@@ -1,0 +1,42 @@
+<h1>Properties</h1>
+<table>
+  <thead>
+    <tr>
+      <table id="student" border="2" layout= "fixed" width=" 60%"  >
+        <colgroup>
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 20%" />
+      <th>Title</th>
+      <th>Property type</th>
+      <th>Location</th>
+      <th>Rate</th>
+      <th>Area</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+        <table id="student" border="1" layout= "fixed" width=" 60%"  >
+        <colgroup>
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 20%" />
+
+        <td><%= property.title %></td>
+        <td><%= property.property_type %></td>
+        <td><%= property.location %></td>
+        <td><%= property.rate %></td>
+        <td><%= property.area %></td>
+        <td><%= link_to 'Show', property %></td>
+        
+        </tr>
+    <% end %>
+  </tbody>
+</table>

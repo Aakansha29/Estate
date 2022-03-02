@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.7', '>= 4.8.1'
 gem 'cancan'
+gem "letter_opener", group: :development
+gem "bootstrap_form", "~> 5.0"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

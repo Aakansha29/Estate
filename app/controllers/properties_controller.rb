@@ -8,8 +8,18 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1 or /properties/1.json
   def show
-  end
+    
+    @likes = @property.likes
 
+  end
+  def search
+    if params[:search].blank?
+      redirect_to(properties_path, alert: "Enter Valid Name!") and return
+    else
+       # keyword = params[:search]
+       @properties = Property.where(["title LIKE ?", "%#{params[:search]}%" ])
+    end
+  end
   # GET /properties/new
   def new
     @property = Property.new
@@ -25,6 +35,7 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       if @property.save
+        # UserMailer.welcome_email(@user).deliver_later
         format.html { redirect_to property_url(@property), notice: "Property was successfully created." }
         format.json { render :show, status: :created, location: @property }
       else
@@ -65,6 +76,7 @@ class PropertiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:title, :property_type, :location, :rate, :area)
+      params.require(:property).permit(:title, :property_type, :location, :rate, :area, :avatar, :description, :search)
     end
 end
+

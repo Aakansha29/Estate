@@ -1,4 +1,4 @@
-<%= form_with(model: property, local: true) do |form| %>
+<%= bootstrap_form_with(model: property, local: true) do |form| %>
   <% if property.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
@@ -12,28 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :property_type %>
-    <%= form.number_field :property_type %>
-  </div>
-
-  <div class="field">
-    <%= form.label :location %>
     <%= form.text_field :location %>
   </div>
 
   <div class="field">
-    <%= form.label :rate %>
     <%= form.text_field :rate %>
   </div>
 
   <div class="field">
-    <%= form.label :area %>
     <%= form.text_field :area %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :description %>
+  </div>
+  <div class="field">
+    <%= form.file_field :avatar %>
   </div>
 
   <div class="actions">

@@ -4,4 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
    enum role: { Seller: 1, Buyer: 2}
+   has_many :likes, dependent: :destroy
+   has_many :unlikes, dependent: :destroy
+
+
 end

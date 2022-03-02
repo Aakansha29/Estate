@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<body style="background-color:darkcyan;">
 <h1>Buyers</h1>
+<%= link_to "Profile",buyers_new_path, class:"btn btn-primary"%>
 
 
 <% if @properties.present? %>
@@ -14,6 +15,7 @@
                 <%= p.area %>
             </p>
             <%= link_to "View", property_path(p), class:"btn btn-primary"%>
+            
           </div>
         </div>
     <% end %>

@@ -1,6 +1,6 @@
 class CreateProperties < ActiveRecord::Migration[5.2]
-  def up
-     drop_table :properties
+  def change
+     
      
      create_table :properties do |t|
       t.string :title

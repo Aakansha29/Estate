@@ -1,41 +1,45 @@
-<p id="notice"><%= notice %></p>
-<% if @property.title == 'Flat' %>
- <%= image_tag "flat1.jpeg" %>
- <%= image_tag "flat2.jpeg" %>
-<% else if @property.title == 'Bungalow' %>
- <%= image_tag "b2.jpeg" %>
-  <% else @property.title == 'Apartment' %>
-<%= image_tag "a1.jpeg" %>
-<% end %> 
-<% end %>
-<p>
-  <strong>Title:</strong>
-  <%= @property.title %>
-</p>
+<body style="background-color:darkcyan;">
+<div class='col-md-12'>
+  <div class='col-md-6'>
+    <p id="notice"><%= notice %></p>
+       <strong>Image:</strong> <br>
+     <%= image_tag @property.avatar, width: "300px" if @property.avatar.attached?  %>                                                                                                 
+    <p> 
+      <strong>Title:</strong>
+      <%= @property.title %>
+    </p>
 
-<p>
-  <strong>Property type:</strong>
-  <%= @property.property_type %>
-</p>
+    <p>
+      <strong>Location:</strong>
+      <%= @property.location %>
+    </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @property.location %>
-</p>
+    <p>
+      <strong>Rate:</strong>
+      <%= @property.rate %>
+    </p>
 
-<p>
-  <strong>Rate:</strong>
-  <%= @property.rate %>
-</p>
+    <p>
+      <strong>Area:</strong>
+      <%= @property.area %>
+    </p>
 
-<p>
-  <strong>Area:</strong>
-  <%= @property.area %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @property.description %>
+    </p>
 
-<% if current_user.role == 'seller' %>
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<% end %>
-<%= link_to 'Back', properties_path %>
+    
 
+
+    <% if current_user.role == 'seller' %>
+    <%= link_to 'Edit', edit_property_path(@property) %> |
+    <% end %>
+    <%= link_to 'Back', properties_path %> 
+    <%= button_to 'Interest', property_likes_path(@property), method: :property %>
+     </div>
+  <div class='col-md-6'>
+    
+  </div>
+</div> 
 

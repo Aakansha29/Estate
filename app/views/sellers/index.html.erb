@@ -1,7 +1,10 @@
-<h1>Seller</h1>
+<body style="background-color:darkcyan;">
+<h1 style="border:2px solid black;"> Seller </h1>
+
+<%= link_to "Profile",buyers_new_path, class:"btn btn-primary"%>
 <% if @properties.present? %>
     <% @properties.each do |p|%>
-        <div class="card" style="width: 18rem; background-color: #cedae9;">
+        <div class="card" style="width: 18rem; background-color: #fff">
           <div class="card-body">
             <h5 class="card-title"><%= p.title%></h5>
             <p class="card-text">
@@ -9,6 +12,7 @@
                 <%= p.rate %>
                 <%= p.area %>
             </p>
+            <div class="card" style="width: 10rem; background-color: #000;">
             <%= link_to "View", property_path(p), class:"btn btn-primary"%>
           </div>
         </div>
