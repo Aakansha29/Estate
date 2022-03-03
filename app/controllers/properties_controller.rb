@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  before_action :set_property, only: %i[ show edit update destroy ]
+  before_action :set_property, only: [:show, :edit, :update, :destroy]
 
   # GET /properties or /properties.json
   def index
@@ -8,17 +8,21 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1 or /properties/1.json
   def show
-    
+    # @property = Property.find_by(@property)
     @likes = @property.likes
-
   end
+
+  # def like
+  #   UserMailer.with(user: current_user,user: @user).post_created.deliver_now
+  # end
+
   def search
     if params[:search].blank?
       redirect_to(properties_path, alert: "Enter Valid Name!") and return
     else
        # keyword = params[:search]
-       @properties = Property.where(["title LIKE ?", "%#{params[:search]}%" ])
-    end
+       @properties = Property.where(["rate LIKE ?", "%#{params[:search]}%" ])
+     end
   end
   # GET /properties/new
   def new
@@ -76,7 +80,7 @@ class PropertiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:title, :property_type, :location, :rate, :area, :avatar, :description, :search)
+      params.require(:property).permit(:title, :property_type, :location, :rate, :area, :avatar, :description, :search, :user_id)
     end
 end
 

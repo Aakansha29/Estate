@@ -1,0 +1,12 @@
+<div style="float: left;">
+  <% like = current_user.likes.find_by(post: post) %> 
+  <% if like.nil? %>
+  <%=  link_to likes_path({ like: { post_id: post.id } }), method: :post do %>
+  <%= image_tag "like-inactive.png", style: "height: 40px;" %>
+  <% end %>
+  <% else %>
+  <%=  link_to  like_path(like), method: :delete do %>
+  <%= image_tag "like-active.png", style: "height: 40px;" %>
+  <% end %>
+  <% end %>
+  </div>

@@ -12,12 +12,15 @@
 
 <nav class="navbar navbar-dark bg-dark justify-content-between">
   <a class="navbar-brand">Real Estate</a>
+
+  <a class="nav-link active"  aria-current="page", <%= link_to 'Home', properties_index_path %></a>
+
   <%= form_tag(search_path, :method => "get",   
    class: 'navbar-form navbar-left') do %>  
    <div class="input-group">  
     <%= search_field_tag :search, params[:search], placeholder: "Search Property"  "Rate", class: "form-control" %>  
     <div class="input-group-btn">  
-      <%= button_tag "Search", :class => 'btn btn-primary glyphicon glyphicon-search',:title => nil %>
+      <%= button_tag "Search", :class => 'btn btn-primary glyphicon glyphicon-search',:titles => nil %>
     </div> 
   </div>  
   <% end %>
