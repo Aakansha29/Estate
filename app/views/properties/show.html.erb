@@ -1,9 +1,11 @@
-<body style="background-color:darkcyan;">
 <div class='col-md-12'>
   <div class='col-md-6'>
+   
     <p id="notice"><%= notice %></p>
        <strong>Image:</strong> <br>
-     <%= image_tag @property.avatar, width: "300px" if @property.avatar.attached?  %>                                                                                                 
+     <%= image_tag @property.avatar, width: "300px" if @property.avatar.attached?  %> 
+
+     
     <p> 
       <strong>Title:</strong>
       <%= @property.title %>

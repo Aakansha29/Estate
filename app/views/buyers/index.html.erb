@@ -1,26 +1,23 @@
 <p id="notice"><%= notice %></p>
-<body style="background-color:darkcyan;">
 <h1>Buyers</h1>
 <%= link_to "Profile",buyers_new_path, class:"btn btn-primary"%>
-
-
-<% if @properties.present? %>
+    <div class="row">
+    <% if @properties.present? %>
     <% @properties.each do |p|%>
-        <div class="card" style="width: 18rem; background-color: #cedae9;">
-          <div class="card-body">
-            <h5 class="card-title"><%= p.title%></h5>
-            <p class="card-text">
-                <%= p.location %>
-                <%= p.rate %>
-                <%= p.area %>
-            </p>
-            <%= link_to "View", property_path(p), class:"btn btn-primary"%>
-            
-          </div>
-        </div>
-    <% end %>
+    <div class="card" style="width: 18rem; background-color: #cedae9;">
+      <!-- <img src="property.avatar" class="card-img-top" alt="..."> -->
+    <div class="card-body">
+    <h5 class="card-title"><%= p.title%></h5>
+    <p class="card-text">
+        <%= p.location %>
+        <%= p.rate %>
+        <%= p.area %>
+    </p>
+    <%= link_to "View", property_path(p), class:"btn btn-primary"%>
+    </div>
+    </div>
+<% end %>
 <% end %>
 
 
-<br>
 
