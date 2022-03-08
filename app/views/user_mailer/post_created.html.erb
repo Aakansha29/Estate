@@ -1,5 +1,6 @@
 <h1>Real Estate</h1>
 
-<p> "I'm interested in <%= @Property.title %> property" </p><br> 
+<p> "I'm interested in <%= Property.last.title %> property" </p><br> 
+<p> Contact : <%= @user.contact_no %> </p>
 
 <p>Liked by: <%= @user.name %>  </p>

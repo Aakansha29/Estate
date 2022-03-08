@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :properties
+  resources :buyers
+  resources :sellers
+  resources :stores
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -15,8 +18,10 @@ Rails.application.routes.draw do
   get '/buyers/index' => 'buyers#index'
   get '/buyers/new'  => 'buyers#new'
   get '/sellers/index' => 'sellers#index'
-   get '/sellers/new'  => 'sellers#new'
-
+  get '/sellers/new'  => 'sellers#new'
+  post   '/users/edit'
+  get 'buyers/_about' => 'buyers#_about'
+  get 'stores/index' => 'stores#index' 
 
    resources :properties do
      resources :likes

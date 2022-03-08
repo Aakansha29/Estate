@@ -1,4 +1,9 @@
 class StoreController < ApplicationController
-  def index
-  end
+	def index
+		@store= Store.all
+	end
+
+	def new
+		@store= Store.new
+	end
 end

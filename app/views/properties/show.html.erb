@@ -1,11 +1,10 @@
 <div class='col-md-12'>
   <div class='col-md-6'>
-   
+
     <p id="notice"><%= notice %></p>
        <strong>Image:</strong> <br>
      <%= image_tag @property.avatar, width: "300px" if @property.avatar.attached?  %> 
-
-     
+     <div class="row">
     <p> 
       <strong>Title:</strong>
       <%= @property.title %>
@@ -26,14 +25,13 @@
       <%= @property.area %>
     </p>
 
+    
     <p>
       <strong>Description:</strong>
       <%= @property.description %>
     </p>
-
-    
-
-
+</div>
+  
     <% if current_user.role == 'seller' %>
     <%= link_to 'Edit', edit_property_path(@property) %> |
     <% end %>
@@ -41,9 +39,7 @@
     <%= button_to 'Interest', property_likes_path(@property), method: :property %>
 
      </div>
-
   <div class='col-md-6'>
   <p><%= @property.likes.count %> <%= (@property.likes.count) == 1 ? 'Like' : 'Likes'%></p>
   </div>
 </div> 
-

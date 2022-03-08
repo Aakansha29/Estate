@@ -13,8 +13,16 @@
 <nav class="navbar navbar-dark bg-dark justify-content-between">
   <a class="navbar-brand">Real Estate</a>
  <li class="nav-item">
-    <a class="nav-link active"  aria-current="page", <%= link_to 'Home', properties_index_path %></a>
-  </li>
+    <a class="navbar-brand"  aria-current="page", <%= link_to 'Home', properties_path %> </a>
+</li>
+
+<li class="nav-item">
+    <a class="navbar-brand"  aria-current="page", <%= link_to 'About',  buyers__about_path %>  </a> 
+</li>
+
+<li class="nav-item">
+    <a class="navbar-brand"  aria-current="page", <%= link_to 'Contact', properties_path %> </a>
+</li>
 
   <%= form_tag(search_path, :method => "get",   
    class: 'navbar-form navbar-left') do %>  
