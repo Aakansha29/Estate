@@ -1,1 +1,6 @@
+<% if current_user.role == 'Seller' %>
 Hello
+<% else %>
+<center>
+<h1 style="color: black;"> you are at wrong section </h1>
+<% end %>

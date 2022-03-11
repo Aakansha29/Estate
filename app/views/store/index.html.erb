@@ -1,0 +1,13 @@
+<center><footer>
+<h1 style=" color: black;"> Real Estate </h1>
+<%= image_tag("r1.jpeg", {:style => "width:400px;"}) %>
+<h1>
+</footer>
+<p style="font-size:25px"> 
+
+<% if user.role = 'buyer'
+<%= link_to 'BUYERS', buyers_index_path %> |
+<% else %>
+<%= link_to 'SELLERS', sellers_path %> 
+<% end %>
+</p>

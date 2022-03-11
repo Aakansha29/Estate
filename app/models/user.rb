@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
    enum role: { Seller: 1, Buyer: 2}
    has_many :likes, dependent: :destroy
-   has_many :unlikes, dependent: :destroy
-
+   # has_many :unlikes, dependent: :destroy
+   has_many :properties
 
 end

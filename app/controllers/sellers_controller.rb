@@ -1,11 +1,11 @@
 class SellersController < ApplicationController
 	def index
-		@properties = Property.all
-	end
-	def new 
-	end
-	
-	def show
+		@properties = current_user.properties
 	end
 
+	def new 
+	end
+
+	def show
+	end
 end

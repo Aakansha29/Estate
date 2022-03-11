@@ -7,9 +7,10 @@ class UserMailer < ApplicationMailer
   #
   def post_created
     @user = params[:user]
+     @property = params[:property]
     @greeting = "Hi"
-    @property = params[:property]
-   attachments['r1.jpg'] = File.read('app/assets/images/r1.jpg')
+    
+   #attachments['r1.jpg'] = File.read('app/assets/images/r1.jpg')
    mail to: @property&.user&.email,
     # cc: User.all.pluck(:email),
     bcc: User.last.email,

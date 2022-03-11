@@ -1,3 +1,4 @@
+<% if current_user.role == 'Seller' %>
 <p id="notice"><%= notice %></p>
 <h1>Properties</h1>
 <table>
@@ -49,4 +50,7 @@
 <br>
 
 <%= link_to 'New Property', new_property_path %>
-
+<% else %>
+<center>
+<h1 style="color: black;"> you are at wrong section </h1>
+<% end %>
