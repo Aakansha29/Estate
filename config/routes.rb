@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'buyers/contact' => 'buyers#contact'
   get 'store/index' => 'store#index'
   get 'store/new' => 'store#new'
+  get 'properties/edit' => 'properties#edit'
   post "users/edit" 
 
    resources :properties do

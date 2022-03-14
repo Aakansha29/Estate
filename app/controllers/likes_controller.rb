@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   before_action :find_like, only: [:destroy]
-	before_action :find_property
+  before_action :find_property
   
   def create
     @property.likes.create(user_id: current_user.id)

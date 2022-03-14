@@ -30,12 +30,14 @@
       <%= @property.description %>
     </p>
 
-    <% if current_user.role == 'buyer' %>
-    <%= link_to 'Back' , sellers_path %>
-    <% else %>
+    <% if current_user.Buyer? %>
     <%= link_to 'Back' , buyers_index_path %>
-    <% end %>
     <%= button_to 'Interest', property_likes_path(@property), method: :property %>
+    <% else %>
+    <%= link_to 'Back' , sellers_path %>
+    <%= link_to 'Edit' , edit_property_path(@property) %>
+    <% end %>
+    
 
      </div>
   <div class='col-md-6'>

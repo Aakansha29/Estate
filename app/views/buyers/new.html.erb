@@ -1,11 +1,8 @@
-<% if current_user.role == 'Buyer' %>
-<h1>My profile </h1>
+<center>
+<h1 style="color :black;">  My profile </h1>
 
 <%= current_user.name %> <br>
 <%= current_user.email %> <br>
 <%= current_user.contact_no %> <br>
 <%= current_user.address %>
-<% else %>
-<center>
-<h1 style="color: black;"> you are at wrong section </h1>
-<% end %>
+</center>
