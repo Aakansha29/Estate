@@ -1,0 +1,23 @@
+<div id="property_filter_modal"  class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Search Property</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h4 class="modal-title popup-modal-title"></h4>
+      </div>
+
+      <div class="modal-body popup-modal-body">
+      <%= form_for "",url: buyers_index_path, role: "Search", method: :get do %>
+      <%= text_field_tag :search, @search_term,placeholder: "search title" %> 
+      <%= text_field_tag :search, @search_term,placeholder: "search location" %>
+      <% end %>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+  </div>
+</div>

@@ -13,7 +13,7 @@ class UserMailer < ApplicationMailer
    #attachments['r1.jpg'] = File.read('app/assets/images/r1.jpg')
    mail to: @property&.user&.email,
     # cc: User.all.pluck(:email),
-    bcc: User.last.email,
+    # bcc: User.last.email,
     subject: "Interested"
   end
 end

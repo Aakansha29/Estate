@@ -7,7 +7,7 @@ def send_it(email)
 
   mail(
     from: email.user.email,
-    to: current_user.email,
+    to: current_user.seller.email,
     subject: email.subject
   )
   end

@@ -1,10 +1,18 @@
 class PropertiesController < ApplicationController
-before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_property, only: [:show, :edit, :update, :destroy]
 # load_and_authorize_resource
 
   # GET /properties or /properties.json
   def index
-    @properties = Property.all
+    
+    if params[:location].present?
+      @properties = Property.where(location: params[:location])
+    elsif params[:my_property]
+      @properties = current_user.properties
+    else
+      @properties = Property.all
+    end
   end
 
   # GET /properties/1 or /properties/1.json
@@ -76,7 +84,7 @@ before_action :set_property, only: [:show, :edit, :update, :destroy]
   private
     # Use callbacks to share common setup or constraints between actions.
   def set_property
-     @property = Property.find(params[:id])
+      @property = Property.find(params[:id])
   end
 
     # Only allow a list of trusted parameters through.

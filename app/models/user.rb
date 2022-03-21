@@ -7,5 +7,4 @@ class User < ApplicationRecord
    has_many :likes, dependent: :destroy
    # has_many :unlikes, dependent: :destroy
    has_many :properties
-
 end

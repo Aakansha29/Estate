@@ -1,7 +1,10 @@
 <% if current_user.role == 'Seller' %>
 <h1 style= "color: black;"> Seller </h1>
 <%= link_to "Profile",buyers_new_path, class:"btn btn-primary"%> | 
-<%= link_to "Create New Property", new_property_path, class: "btn btn-primary" %>
+<%= link_to "Create New Property", new_property_path, class: "btn btn-primary" %> |
+<%= link_to "Property", properties_path, class: "btn btn-primary" %> |
+<%= link_to "My Property", properties_path(my_property: true), class: "btn btn-primary" %> |
+
 <div class="row"> 
     <% if @properties.present? %>
     <% @properties.each do |p|%>

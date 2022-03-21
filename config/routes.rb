@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   root 'properties#index'
 
   # root 'buyers#index'
-  #get '/search' => 'buyers#Search'
+  get '/search' => 'buyers#search'
   get '/search' => 'properties#search'
   get '/buyers/index' => 'buyers#index'
   get '/buyers/new'  => 'buyers#new'

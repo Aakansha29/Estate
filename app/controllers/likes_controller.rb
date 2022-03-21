@@ -3,19 +3,12 @@ class LikesController < ApplicationController
   before_action :find_property
   
   def create
-    @property.likes.create(user_id: current_user.id)
+    @property.likes.create(id: current_user)
     UserMailer.with(user: current_user, property: @property).post_created.deliver_now
     redirect_to property_path(@property)
   end
 
-  def destroy
-    if !(already_liked?)
-      flash[:notice] = "Cannot unlike"
-    else
-      @like.destroy
-    end
-    redirect_to property_path(@property)
-  end
+  
 
   private
 

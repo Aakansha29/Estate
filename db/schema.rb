@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_09_102418) do
+ActiveRecord::Schema.define(version: 2022_03_16_095022) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -98,6 +98,14 @@ ActiveRecord::Schema.define(version: 2022_03_09_102418) do
     t.integer "user_id"
     t.text "image"
     t.index ["user_id"], name: "index_properties_on_user_id"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "title"
+    t.string "rate"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sellers", force: :cascade do |t|

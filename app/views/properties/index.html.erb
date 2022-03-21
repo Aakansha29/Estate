@@ -1,56 +1,36 @@
-<% if current_user.role == 'Seller' %>
 <p id="notice"><%= notice %></p>
 <h1>Properties</h1>
-<table>
-  <thead>
-    <tr>
-      <table id="student" border="2" layout= "fixed" width="100%"  >
-        <colgroup>
-        <col style="width: 12%" />
-        <col style="width: 20%" />
-        <col style="width: 15%" />
-        <col style="width: 20%" />
-        <col style="width: 30%" />
-      <th>Title</th>
-      <th>Location</th>
-      <th>Rate</th>
-      <th>Area</th>
-      <th>Description</th>
-      <th>Avatar</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @properties.each do |property| %>
-      <tr>
-        <table id="student" border="1" layout= "fixed" width=" 100%"  >
-        <colgroup>
-        <col style="width: 12%" />
-        <col style="width: 20%" />
-        <col style="width: 15%" />
-        <col style="width: 20%" />
-        <col style="width: 30%" />
-
-        <td><%= property.title %></td>
-        <td><%= property.location %></td>
-        <td><%= property.rate %></td>
-        <td><%= property.area %></td>
-        <td><%= property.description %></td>
-        <td><%= image_tag property.avatar, width: "50px" if property.avatar.attached? %></td>
-        <td><%= link_to 'Show', property %></td>
-        <% if current_user.role == 'Seller' %>
-          <td><%= link_to 'Edit', edit_property_path(property) %></td>
-          <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-        </tr>
+<div class="row">
+  <% @properties.each do |property| %>
+  <div class="card" style="width: 18rem; background-color: #fff">
+  <div class="card-body">
+  <% if property.avatar.attached? %>
+    <%= image_tag property.avatar, width: "200px" %>
+  <% end %>
+  <h5 class="card-title"><%= property.title%></h5>
+  <p class="card-text">
+    <%= property.location %> <br>
+    <%= property.rate %><br>
+    <%= property.area %>
+    <%= property.description %>
+    </p>
+  <% if current_user.role == 'Seller' %>
+  <%= link_to 'Show', property %>
+  <%= link_to 'Edit', edit_property_path(property) %>
+  <%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% else %>
+   <%= link_to 'Show', property %>
+  <% end %>
+</div>
+</div>
     <% end %>
-  </tbody>
-</table>
 <br>
-
+<% if current_user.role == 'Seller' %>
 <%= link_to 'New Property', new_property_path %>
 <% else %>
-<center>
-<h1 style="color: black;"> you are at wrong section </h1>
+<%= link_to 'Back' ,buyers_index_path %>
+<% end %>
+
+<% if current_user.role == 'Seller' %>
+  <%= link_to 'Back' ,sellers_path %>
 <% end %>

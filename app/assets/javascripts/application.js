@@ -11,6 +11,14 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require bootstrap
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function () {
+	$('.property_filter').on('click', function() {
+		$('#property_filter_modal').modal('toggle');
+	});
+});

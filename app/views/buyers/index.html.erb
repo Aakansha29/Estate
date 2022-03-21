@@ -2,7 +2,8 @@
 <div class= "contanier my-3">
 <p id="notice"><%= notice %></p>
 <h1 style="color:black;">Buyers</h1>
-<%= link_to "Profile",buyers_new_path, class:"btn btn-primary"%>
+<%= link_to "Profile",buyers_new_path, class:"btn btn-primary"%> | 
+ <a href='javascript:void(0)' class='property_filter'>Filter</a>
 <div class="row">
     <% if @properties.present? %>
     <% @properties.each do |p|%>
@@ -17,7 +18,7 @@
         <%= p.rate %><br>
         <%= p.area %>
     </p>
-    <p> Created by: <%= p.user_id %> </p>
+    <p> Created by: <%= p.user.name.capitalize %> </p>
     <%= link_to "View", property_path(p), class:"btn btn-primary"%>
     </div>
     </div>
@@ -28,3 +29,5 @@
 <center>
 <h1 style="color: black;"> you are at wrong section </h1>
 <% end %>
+
+<%= render partial: 'buyers/filter_modal' %>
