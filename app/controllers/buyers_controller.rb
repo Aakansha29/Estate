@@ -8,12 +8,22 @@ class BuyersController < ApplicationController
 
 	def search
 	    if params[:search].blank?
-	      redirect_to(buyers_path, alert: "Enter Valid Name!") and return
+	      redirect_to(buyers_new_path, alert: "Enter Valid Name!") and return
 	    else
-	       # keyword = params[:search]
-	       @buyers = Buyer.where(["name LIKE ?", "%#{params[:search]}%" ])
+	       keyword = params[:search]
+	       @properties = Property.where(["title LIKE ?", "%#{keyword}%" ])
 	    end
-	 end
+	end
+
+	def filter
+		if params[:search].blank?
+	      redirect_to(properties_path, alert: "Enter Valid Name!") and return
+	    else
+	       keyword = params[:search]
+	       @properties = Property.where(["title LIKE ?", "%#{keyword}%" ])
+	  end
+	end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_buyer

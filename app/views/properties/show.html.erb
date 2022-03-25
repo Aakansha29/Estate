@@ -1,46 +1,46 @@
  <div class="container">
-    <p id="notice"><%= notice %></p>
-       <strong>Image:</strong> <br>
-     <%= image_tag @property.avatar, width: "300px" if @property.avatar.attached?  %> 
+  <p id="notice"><%= notice %></p>
+  <strong>Image:</strong> <br>
+  <%= image_tag @property.avatar, width: "300px" if @property.avatar.attached?  %> 
 
- 
-    <p> 
-      <strong>Title:</strong>
-      <%= @property.title %>
-    </p>
 
-    <p>
-      <strong>Location:</strong>
-      <%= @property.location %>
-    </p>
+  <p> 
+    <strong>Title:</strong>
+    <%= @property.title %>
+  </p>
 
-    <p>
-      <strong>Rate:</strong>
-      <%= @property.rate %>
-    </p>
+  <p>
+    <strong>Location:</strong>
+    <%= @property.location %>
+  </p>
 
-    <p>
-      <strong>Area:</strong>
-      <%= @property.area %>
-    </p>
+  <p>
+    <strong>Rate:</strong>
+    <%= @property.rate %>
+  </p>
 
-    
-    <p>
-      <strong>Description:</strong>
-      <%= @property.description %>
-    </p>
+  <p>
+    <strong>Area:</strong>
+    <%= @property.area %>
+  </p>
 
-    <% if current_user.Buyer? %>
-    <%= link_to 'Back' , buyers_index_path %>
-    <%= button_to 'Interest', property_likes_path(@property), method: :property %>
-    <% else %>
-    <%= link_to 'Back' , sellers_path %>
-    <%= link_to 'Edit' , edit_property_path(@property) %>
-    <% end %>
-    
 
-     </div>
-  <div class='col-md-6'>
+  <p>
+    <strong>Description:</strong>
+    <%= @property.description %>
+  </p>
+
+  <% if current_user.Buyer? %>
+  <%= link_to 'Back' , buyers_index_path %>
+  <%= button_to 'Interest', property_likes_path(@property), method: :property %>
+  <% else %>
+  <%= link_to 'Back' , sellers_path %>
+  <%= link_to 'Edit' , edit_property_path(@property) %>
+  <% end %>
+
+
+</div>
+<div class='col-md-6'>
   <p><%= @property.likes.count %> <%= (@property.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-  </div>
+</div>
 </div> 

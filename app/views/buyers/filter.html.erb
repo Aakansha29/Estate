@@ -1,6 +1,6 @@
 <div class = "container"> 
 <div class="row">
-    <%# if @properties.present? %>
+    <% if @properties.present? %>
     <% @properties.each do |p|%>
      <div class="card" style="width: 18rem; background-color: #cedae9;">
      <div class="card-body">
@@ -21,3 +21,5 @@
 <% end %>
 </div>
 </div>
+
+<%= link_to 'Back' ,buyers_index_path %>

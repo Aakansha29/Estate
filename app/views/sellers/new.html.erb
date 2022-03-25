@@ -1,10 +1,13 @@
+<center>
 <% if current_user.role == 'Seller' %>
-<h1>My profile </h1>
-<%= current_user.name %> <br>
+<h1 style="color :black;">  My profile </h1>
+<h4 style="color :black;"> <%= current_user.name %> <br>
 <%= current_user.email %> <br>
 <%= current_user.contact_no %> <br>
-<%= current_user.address %>
+<%= current_user.address %> </h4>
 <% else %>
 <center>
 <h1 style="color: black;"> you are at wrong section </h1>
 <% end %>
+</center>
+<%= link_to 'Back' ,sellers_path %>

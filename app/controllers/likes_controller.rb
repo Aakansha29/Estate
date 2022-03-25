@@ -7,9 +7,6 @@ class LikesController < ApplicationController
     UserMailer.with(user: current_user, property: @property).post_created.deliver_now
     redirect_to property_path(@property)
   end
-
-  
-
   private
 
   def find_like
@@ -20,3 +17,4 @@ class LikesController < ApplicationController
     @property = Property.find(params[:property_id])
   end
 end
+

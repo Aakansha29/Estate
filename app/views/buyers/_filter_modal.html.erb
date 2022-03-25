@@ -8,16 +8,16 @@
       </div>
 
       <div class="modal-body popup-modal-body">
-      <%= form_for "",url: buyers_index_path, role: "Search", method: :get do %>
-      <%= text_field_tag :search, @search_term,placeholder: "search title" %> 
-      <%= text_field_tag :search, @search_term,placeholder: "search location" %>
-      <% end %>
+        <%= form_for "Buyers" ,method: :get do %>
+        <%= text_field_tag :title, @search ,placeholder: "search title" %> 
+        <% end %>
+
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Search</button>
-        </div>
+        <%= link_to 'search', filter_path, class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,36 +1,38 @@
-<p id="notice"><%= notice %></p>
-<h1>Properties</h1>
-<div class="row">
-  <% @properties.each do |property| %>
-  <div class="card" style="width: 18rem; background-color: #fff">
-  <div class="card-body">
-  <% if property.avatar.attached? %>
-    <%= image_tag property.avatar, width: "200px" %>
+<div class = "container">
+  <p id="notice"><%= notice %></p>
+  <h1 style= "color: black;"> Properties </h1>
+  <div class="row">
+    <% @properties.each do |property| %>
+    <div class="card" style="width: 18rem; background-color: #fff">
+      <div class="card-body">
+        <% if property.avatar.attached? %>
+        <%= image_tag property.avatar, width: "200px" %>
+        <% end %>
+        <h5 style="color :black;" class="card-title"><%= property.title%></h5>
+        <h6 style="color :black;"> <p class="card-text">
+          <%= property.location %> <br>
+          <%= property.rate %><br>
+          <%= property.area %>
+          <%= property.description %>
+        </p>
+      </h6>
+      <% if current_user.role == 'Seller' %>
+      <%= link_to 'Show', property %>
+      <%= link_to 'Edit', edit_property_path(property) %>
+      <%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% else %>
+      <%= link_to 'Show', property %>
+      <% end %>
+    </div>
+  </div>
   <% end %>
-  <h5 class="card-title"><%= property.title%></h5>
-  <p class="card-text">
-    <%= property.location %> <br>
-    <%= property.rate %><br>
-    <%= property.area %>
-    <%= property.description %>
-    </p>
+  <br>
   <% if current_user.role == 'Seller' %>
-  <%= link_to 'Show', property %>
-  <%= link_to 'Edit', edit_property_path(property) %>
-  <%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'New Property', new_property_path %>
   <% else %>
-   <%= link_to 'Show', property %>
+  <%= link_to 'Back' ,buyers_index_path %>
   <% end %>
-</div>
-</div>
-    <% end %>
-<br>
-<% if current_user.role == 'Seller' %>
-<%= link_to 'New Property', new_property_path %>
-<% else %>
-<%= link_to 'Back' ,buyers_index_path %>
-<% end %>
 
-<% if current_user.role == 'Seller' %>
+  <% if current_user.role == 'Seller' %>
   <%= link_to 'Back' ,sellers_path %>
-<% end %>
+  <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_16_095022) do
+ActiveRecord::Schema.define(version: 2022_03_09_094118) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -47,18 +47,6 @@ ActiveRecord::Schema.define(version: 2022_03_16_095022) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "add_avatar_to_properties", force: :cascade do |t|
-    t.text "avatar"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "add_image_to_properties", force: :cascade do |t|
-    t.text "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -74,7 +62,6 @@ ActiveRecord::Schema.define(version: 2022_03_16_095022) do
   create_table "buyers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -96,16 +83,7 @@ ActiveRecord::Schema.define(version: 2022_03_16_095022) do
     t.datetime "updated_at", null: false
     t.string "description"
     t.integer "user_id"
-    t.text "image"
     t.index ["user_id"], name: "index_properties_on_user_id"
-  end
-
-  create_table "searches", force: :cascade do |t|
-    t.string "title"
-    t.string "rate"
-    t.string "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "sellers", force: :cascade do |t|

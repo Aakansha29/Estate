@@ -1,33 +1,34 @@
 <% if current_user.role == "Buyer" %>
 <div class= "contanier my-3">
-<p id="notice"><%= notice %></p>
-<h1 style="color:black;">Buyers</h1>
-<%= link_to "Profile",buyers_new_path, class:"btn btn-primary"%> | 
- <a href='javascript:void(0)' class='property_filter'>Filter</a>
-<div class="row">
+  <p id="notice"><%= notice %></p>
+  <h1 style="color:black;">Buyers</h1>
+  <%= link_to "Profile",buyers_new_path, class:"btn btn-primary"%> 
+  <a href='javascript:void(0)' class='property_filter'>Filter</a>
+  <div class="row">
     <% if @properties.present? %>
     <% @properties.each do |p|%>
-     <div class="card" style="width: 18rem; background-color: #cedae9;">
+    <div class="card" style="width: 20rem; background-color: #fff;">
      <div class="card-body">
-     <% if p.avatar.attached? %>
-      <%= image_tag p.avatar, height: "150px" %>
-    <% end %>
-   <h5 class="card-title"><%= p.title%></h5>
-    <p class="card-text">
+       <% if p.avatar.attached? %>
+       <%= image_tag p.avatar, height: "150px" %>
+       <% end %>
+       <h5 style="color :black;" class="card-title"><%= p.title%></h5>
+       <h6 style="color :black;"> <p class="card-text">
         <%= p.location %> <br>
         <%= p.rate %><br>
         <%= p.area %>
-    </p>
-    <p> Created by: <%= p.user.name.capitalize %> </p>
-    <%= link_to "View", property_path(p), class:"btn btn-primary"%>
+      </p>
+      <p> Created by: <%= p.user.name.capitalize %> </p>
+      <%= link_to "View", property_path(p), class:"btn btn-primary"%>
+    </h6>
     </div>
-    </div>
+  </div>
   <% end %>
-<% end %>
+  <% end %>
 </div>
 <% else %>
 <center>
-<h1 style="color: black;"> you are at wrong section </h1>
-<% end %>
+  <h1 style="color: black;"> you are at wrong section </h1>
+  <% end %>
 
-<%= render partial: 'buyers/filter_modal' %>
+  <%= render partial: 'buyers/filter_modal' %>
