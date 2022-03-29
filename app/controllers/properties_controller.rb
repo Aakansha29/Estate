@@ -30,7 +30,7 @@ class PropertiesController < ApplicationController
       redirect_to(properties_path, alert: "Enter Valid Name!") and return
     else
        # keyword = params[:search]
-       @properties = Property.where(["rate LIKE ?", "%#{params[:search]}%" ])
+       @properties = Property.where(["title LIKE ?", "%#{params[:search]}%" ])
      end
   end
   # GET /properties/new

@@ -3,7 +3,7 @@
   <p id="notice"><%= notice %></p>
   <h1 style="color:black;">Buyers</h1>
   <%= link_to "Profile",buyers_new_path, class:"btn btn-primary"%> 
-  <a href='javascript:void(0)' class='property_filter'>Filter</a>
+  <a href='javascript:void(0)' class='property_filter', search_path>Filter</a>
   <div class="row">
     <% if @properties.present? %>
     <% @properties.each do |p|%>

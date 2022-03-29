@@ -16,11 +16,11 @@ class BuyersController < ApplicationController
 	end
 
 	def filter
-		if params[:search].blank?
+		if params[:title].blank?
 	      redirect_to(properties_path, alert: "Enter Valid Name!") and return
 	    else
-	       keyword = params[:search]
-	       @properties = Property.where(["title LIKE ?", "%#{keyword}%" ])
+	       keyword = params[:title]
+	       @properties = Property.where(["title LIKE ? OR location LIKE ?", "%#{keyword}%", "%#{keyword}%"])
 	  end
 	end
 

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   # root 'buyers#index'
   get '/search' => 'buyers#search'
+ 
   get '/filter' => 'buyers#filter'
   get '/search' => 'properties#search'
   get '/buyers/index' => 'buyers#index'

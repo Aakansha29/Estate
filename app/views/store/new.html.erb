@@ -31,3 +31,10 @@ Take a look at the ways successful real estate websites put these design strateg
 </figcaption></div><div class="matrix__item"><figure><img src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2019/11/attachment_61910542-e1572909168180.png?auto=format&amp;q=60&amp;fit=max&amp;w=930" alt="Colorful website showing a modern home"></figure><figcaption>Colorful website design by <a href="/profiles/lookwhatedid" data-track-click data-track-hover>Elizabeth.S</a>
 </figcaption></div><div class="matrix__item"><figure><img src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2019/11/attachment_76324178-e1572909207819.png?auto=format&amp;q=60&amp;fit=max&amp;w=930" alt="Minimalist website with pictures of luxury spaces"></figure><figcaption>Minimalist website design by <a href="/profiles/522853" data-track-click data-track-hover>Aakansha</a>
 </figcaption></div></div>
+
+<% if current_user.role == 'Seller' %>
+<%= link_to 'Back', sellers_path %>
+<% else %>
+<%= link_to 'Back' ,buyers_index_path %>
+<% end %>
+
