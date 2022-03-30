@@ -4,24 +4,25 @@
 <%= link_to "Create New Property", new_property_path, class: "btn btn-primary" %> |
 <%= link_to "Property", properties_path, class: "btn btn-primary" %> |
 <%= link_to "My Property", properties_path(my_property: true), class: "btn btn-primary" %>
-
 <div class="row"> 
     <% if @properties.present? %>
     <% @properties.each do |p|%>
-    <div class="card" style="width: 20rem; background-color: #fff">
+    <div class="col-md-3 my-2">
+    <div class="card">
         <div class="card-body">
             <% if p.avatar.attached? %>
-            <%= image_tag p.avatar, width: "250px" %>
+            <%= image_tag p.avatar, height: "200px" , width: "90%" %>
             <% end %>
             <h5 style="color :black;" class="card-title"><%= p.title%></h5>
             <h6 style="color :black;"> <p class="card-text">
-               <%= p.location %> <br>
-               <%= p.rate %><br>
-               <%= p.area %>
-           </p>
-       </h6>
-           <div class="card" style="width: 15rem; background-color: #000;">
-            <%= link_to "View", property_path(p), class:"btn btn-primary"%>
+             <%= p.location %> <br>
+             <%= p.rate %><br>
+             <%= p.area %>
+         </p>
+     </h6>
+    </div>
+     <div class="card">
+        <%= link_to "View", property_path(p), class:"btn btn-primary"%>
     </div>
 </div>
 </div>

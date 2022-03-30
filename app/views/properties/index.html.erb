@@ -1,12 +1,12 @@
-<div class = "container">
-  <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
   <h1 style= "color: black;"> Properties </h1>
-  <div class="row">
+  <div class="row mx-0">
     <% @properties.each do |property| %>
-    <div class="card" style="width: 18rem; background-color: #fff">
+    <div class="col-md-3 my-2">
+    <div class="card">
       <div class="card-body">
         <% if property.avatar.attached? %>
-        <%= image_tag property.avatar, width: "200px" %>
+        <%= image_tag property.avatar, height: "150px", width: "100%" %>
         <% end %>
         <h5 style="color :black;" class="card-title"><%= property.title%></h5>
         <h6 style="color :black;"> <p class="card-text">
@@ -16,6 +16,7 @@
           <%= property.description %>
         </p>
       </h6>
+    </div>
       <% if current_user.role == 'Seller' %>
       <%= link_to 'Show', property %>
       <%= link_to 'Edit', edit_property_path(property) %>

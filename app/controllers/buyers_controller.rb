@@ -20,7 +20,7 @@ class BuyersController < ApplicationController
 	      redirect_to(properties_path, alert: "Enter Valid Name!") and return
 	    else
 	       keyword = params[:title]
-	       @properties = Property.where(["title LIKE ? OR location LIKE ?", "%#{keyword}%", "%#{keyword}%"])
+	       @properties = Property.where(["title LIKE ? OR location LIKE ? OR rate LIKE ?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
 	  end
 	end
 
